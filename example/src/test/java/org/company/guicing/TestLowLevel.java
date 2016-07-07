@@ -5,35 +5,32 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.util.Modules;
-import org.company.guicing.lib.RouteInvoker;
-import org.company.guicing.lib.RouteRequest;
-import org.company.guicing.lib.RouteResponse;
-import org.company.guicing.lib.SomeUtil;
+import org.company.guicing.lib.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestLowLevel {
 
-    private MockSomeUtil mockSomeUtil = new MockSomeUtil();
-    private RouteInvoker app;
+    private MockRouteInvoker mockInvoker = new MockRouteInvoker();
+    private Router app;
 
     @Before
     public void setup() {
         Module moduleWithTestOverrides = Modules.override(BasicGuiceMain.getProductionModules()).with(new TestModule());
         Injector injector = Guice.createInjector(moduleWithTestOverrides);
-        app = injector.getInstance(RouteInvoker.class);
+        app = injector.getInstance(Router.class);
     }
 
     @Test
     public void testSmallUnit() {
         int score = 55;
-        mockSomeUtil.setCachedResponse(new RouteResponse(score));
+        mockInvoker.setCachedResponse(new RouteResponse(score));
 
-        RouteResponse response = app.sendRequestIntoSystem(999);
+        RouteResponse response = app.fetchResp(999);
 
-        RouteRequest cachedRequest = mockSomeUtil.getCachedRequest();
-        Assert.assertEquals(999, cachedRequest.getId());
+        int cachedRequest = mockInvoker.getCachedRequest();
+        Assert.assertEquals(999, cachedRequest);
         Assert.assertEquals(score, response.getScore());
     }
 
@@ -41,7 +38,7 @@ public class TestLowLevel {
 
         @Override
         public void configure(Binder binder) {
-            binder.bind(SomeUtil.class).toInstance(mockSomeUtil);
+            binder.bind(RouteInvoker.class).toInstance(mockInvoker);
         }
     }
 

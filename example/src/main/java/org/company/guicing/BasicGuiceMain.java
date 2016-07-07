@@ -15,7 +15,7 @@ import java.util.List;
  * STEP 4: show low level test and how you can test any piece you want know since the design is correct (and can do it at any time)
  * STEP 5: show @Provides method that has too many 'new' keywords in it (SAVE for later refactoring)
  * STEP 6: show @Before in test method that constructs with too many new operators with it
- * STEP 7: Now, refactor such that steps 4, 5, and 6 all break!!!!
+ * STEP 7: Now, refactor Router.java constructor such that steps 4, 5, and 6 all break!!!!
  * STEP 8: Now that those are broken, delete them(we can revert checkout anyways)
  * STEP 9: Make SocketLib depend on App and show the guice exception and then remove(comment out new constructor)
  * STEP 10: Throw exception from SomeUtil constructor in DEVELOPMENT mode
