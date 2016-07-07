@@ -24,6 +24,7 @@ import java.util.List;
  * STEP 12: Now, swap out ALL SomeUtil very easily without affecting production code!!! for performance testing purposes (thanks Brian Dupras for runnig into this use-case)
  * STEP 13: LASTLY, your server is embeddable in any other server as a library now which is a very powerful concept
  * STEP 14: OR peal off a library(create test case on the fly for this)
+ * STEP 15: Avoid assisted injection as it is confusing to old and new users and is a hassle to support 
  *
  */
 public class BasicGuiceMain {
