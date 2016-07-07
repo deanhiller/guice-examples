@@ -5,7 +5,6 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.util.Modules;
-import org.company.guicing.lib.RouteInvoker;
 import org.company.guicing.lib.RouteResponse;
 import org.company.guicing.lib.SocketLibrary;
 import org.junit.Assert;

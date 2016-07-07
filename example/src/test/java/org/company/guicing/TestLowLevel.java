@@ -6,8 +6,8 @@ import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.util.Modules;
 import org.company.guicing.lib.RouteInvoker;
+import org.company.guicing.lib.RouteRequest;
 import org.company.guicing.lib.RouteResponse;
-import org.company.guicing.lib.SocketLibrary;
 import org.company.guicing.lib.SomeUtil;
 import org.junit.Assert;
 import org.junit.Before;
@@ -29,8 +29,11 @@ public class TestLowLevel {
     public void testSmallUnit() {
         int score = 55;
         mockSomeUtil.setCachedResponse(new RouteResponse(score));
+
         RouteResponse response = app.sendRequestIntoSystem(999);
 
+        RouteRequest cachedRequest = mockSomeUtil.getCachedRequest();
+        Assert.assertEquals(999, cachedRequest.getId());
         Assert.assertEquals(score, response.getScore());
     }
 

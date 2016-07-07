@@ -12,6 +12,7 @@ public class RouteInvoker {
     }
 
     public RouteResponse sendRequestIntoSystem(int id) {
-        return util.fetchResponse(new RouteRequest(id));
+        RouteRequest routeRequest = new RouteRequest(id);
+        return util.fetchResponse(routeRequest);
     }
 }

@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * STEP 1: Draw design on whiteboard from App.class on down via reading the constructors
  * STEP 2: explain guice initialization and BESTModuleEver
+ *     - only ONE SINGLE call to getInstance
  * STEP 3: show high level test and how to do the overrides
  * STEP 4: show low level test and how you can test any piece you want know since the design is correct (and can do it at any time)
  * STEP 5: show @Provides method that has too many 'new' keywords in it (SAVE for later refactoring)
