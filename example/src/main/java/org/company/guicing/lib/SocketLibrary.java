@@ -11,10 +11,6 @@ public class SocketLibrary {
     public SocketLibrary() {
     }
 
-//    @Inject
-//    public SocketLibrary(App app) {
-//    }
-
     public void bindPort(int i, RouteInvoker invoker) {
         log.info("bind server port to 8080");
 
