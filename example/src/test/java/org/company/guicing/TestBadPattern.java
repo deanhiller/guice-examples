@@ -1,4 +1,4 @@
-package org.company.guicing.bad;
+package org.company.guicing;
 
 import com.google.inject.Binder;
 import com.google.inject.Module;
