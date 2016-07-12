@@ -13,13 +13,13 @@ import org.junit.Test;
 public class TestLowLevel {
 
     private MockRouteInvoker mockInvoker = new MockRouteInvoker();
-    private Router app;
+    private Router router;
 
     @Before
     public void setup() {
         Module moduleWithTestOverrides = Modules.override(BasicGuiceMain.getProductionModules()).with(new TestModule());
         Injector injector = Guice.createInjector(moduleWithTestOverrides);
-        app = injector.getInstance(Router.class);
+        router = injector.getInstance(Router.class);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class TestLowLevel {
         int score = 55;
         mockInvoker.setCachedResponse(new RouteResponse(score));
 
-        RouteResponse response = app.fetchResp(999);
+        RouteResponse response = router.fetchResp(999);
 
         int cachedRequest = mockInvoker.getCachedRequest();
         Assert.assertEquals(999, cachedRequest);
