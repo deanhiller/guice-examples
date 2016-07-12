@@ -9,6 +9,7 @@ public class BadGuiceModule implements Module {
 
     @Override
     public void configure(Binder binder) {
+        //binder.bind(Router.class).toInstance(new Router());
 
     }
 
@@ -21,4 +22,9 @@ public class BadGuiceModule implements Module {
 
         return r;
     }
+
+//    @Provides
+//    public Router provideRouter(SocketLibrary lib, RouteInvoker invoker) {
+//        return new Router(lib, invoker);
+//    }
 }
