@@ -15,7 +15,7 @@ public class TestBadPattern {
 
     @Before
     public void setup() {
-        router = new Router(new SocketLibrary(), new RouteInvoker(new SomeUtil()));
+        router = new Router(mockSocket, new RouteInvoker(new SomeUtil()));
     }
 
     @Test
